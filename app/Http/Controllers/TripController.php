@@ -12,9 +12,20 @@ class TripController extends Controller
      */
     public function index()
     {
-        //
-        $trips = Trip::all();
-        return response()->json($trips);
+        $trips = Trip::with('bookings')
+            ->orderBy('start_date')
+            ->get()
+            ->map(function ($trip) {
+                $trip->confirmed_bookings = $trip->bookings->where('status', 'confirmed')->count();
+                $trip->pending_bookings = $trip->bookings->where('status', 'pending')->count();
+                $trip->cancelled_bookings = $trip->bookings->where('status', 'cancelled')->count();
+                $trip->total_revenue = $trip->bookings
+                    ->where('status', 'confirmed')
+                    ->sum(fn($booking) => $booking->number_of_people * $trip->price_per_person);
+                return $trip;
+            });
+
+        return view('trips', compact('trips'));
     }
 
     /**

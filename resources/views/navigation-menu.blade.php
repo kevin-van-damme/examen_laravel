@@ -13,7 +13,10 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Trips Overview') }}
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('trips.index') }}" :active="request()->routeIs('trips.index')">
+                        {{ __('Trips') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('addTrip') }}" :active="request()->routeIs('addTrip')">
                         {{ __('Add Trip') }}

@@ -19,4 +19,5 @@ Route::middleware([
     Route::get('/addTrip', function () {
         return view('addTrip');
     })->name('addTrip');
+    Route::get('/trips', [TripController::class, 'index'])->name('trips.index');
 });

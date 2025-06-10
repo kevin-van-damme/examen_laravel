@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BookingController extends Controller
 {
@@ -31,8 +32,33 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         //
-        $booking = Booking::create($request->all());
-        return response()->json($booking, 201);
+        $token = md5($request->email . "canadarocks");
+        if (!$request->token === $token) {
+            return response()->json(['error' => 'Token is not valid'], 401);
+        }
+        $validator = Validator::make($request->all(), [
+            'trip_id' => 'required|exists:trips,id',
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|max:100',
+            'number_of_people' => 'required|integer|min:1',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 422);
+        }
+        $expectedToken = md5($request->email . 'canadarocks');
+        if ($request->token !== $expectedToken) {
+            return response()->json(['error' => 'Invalid token'], 403);
+        } else {
+            $booking = Booking::create([
+                'trip_id' => $request->trip_id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'number_of_people' => $request->number_of_people,
+                'status' => 'pending',
+            ]);
+        }
+
+        return response()->json("Booking created successfully, $booking", 201);
     }
 
     /**
