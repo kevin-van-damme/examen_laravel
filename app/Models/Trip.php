@@ -17,4 +17,8 @@ class Trip extends Model
         'duration_days',
         'price_per_person',
     ];
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

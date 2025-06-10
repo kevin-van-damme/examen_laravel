@@ -17,7 +17,7 @@ return new class extends Migration
             $table->enum('region', ['east', 'west', 'north', 'central'])->required();
             $table->date('start_date')->required();
             $table->integer('duration_days')->required()->min(1);
-            $table->integer('price_per_person')->required()->min(1);
+            $table->decimal('price_per_person', 10, 2)->required()->min(1);
             $table->timestamps();
         });
     }
