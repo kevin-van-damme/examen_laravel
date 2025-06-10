@@ -39,9 +39,11 @@ class BookingController extends Controller
         $validator = Validator::make($request->all(), [
             'trip_id' => 'required|exists:trips,id',
             'name' => 'required|string|max:100',
-            'email' => 'required|email|max:100',
+            'email' => 'required|email|max:100|unique:bookings,email',
             'number_of_people' => 'required|integer|min:1',
             'duration_days' => 'required|integer|min:1',
+            'status' => 'required|string|in:pending,confirmed,cancelled|default:pending',
+            'token' => 'required|string|max:100',
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
