@@ -19,8 +19,4 @@ Route::middleware([
     Route::get('/addTrip', function () {
         return view('addTrip');
     })->name('addTrip');
-    // Dit zijn de api routes voor de trips
-    Route::get('/trips', [TripController::class, 'index'])->name('trips.index');
-    Route::post('/trips', [TripController::class, 'store'])->name('trips.store');
-    Route::delete('/trips/{trip}', [TripController::class, 'destroy'])->name('trips.destroy');
 });
