@@ -26,7 +26,11 @@
                 <input type="date" name="start_date" id="start_date" class="rounded-md p-2 w-1/3">
             </div>
             <div class="flex flex-col gap-1">
-                <label for="duration_days" class="text-white">Duration Days</label>
+                <label for="number_of_people" class="text-white">Number of people</label>
+                <input type="number" name="number_of_people" id="number_of_people" class="rounded-md p-2 w-1/3">
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="duration_days" class="text-white">Duration(in days)</label>
                 <input type="number" name="duration_days" id="duration_days" class="rounded-md p-2 w-1/3">
             </div>
             <div class="flex flex-col gap-1">

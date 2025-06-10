@@ -19,6 +19,7 @@ class TripResource extends JsonResource
             'title' => $this->title,
             'region' => $this->region,
             'start_date' => $this->start_date,
+            'number_of_people' => $this->number_of_people,
             'duration_days' => $this->duration_days,
             'price_per_person' => $this->price_per_person,
             'created_at' => $this->created_at,

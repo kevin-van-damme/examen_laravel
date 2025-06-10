@@ -14,6 +14,7 @@ class Booking extends Model
         'name',
         'email',
         'number_of_people',
+        'duration_days',
         'status',
     ];
     public function trip()

@@ -41,6 +41,7 @@ class BookingController extends Controller
             'name' => 'required|string|max:100',
             'email' => 'required|email|max:100',
             'number_of_people' => 'required|integer|min:1',
+            'duration_days' => 'required|integer|min:1',
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
@@ -54,6 +55,7 @@ class BookingController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'number_of_people' => $request->number_of_people,
+                'duration_days' => $request->duration_days,
                 'status' => 'pending',
             ]);
         }
