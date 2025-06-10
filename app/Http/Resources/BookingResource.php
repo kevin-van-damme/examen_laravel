@@ -20,6 +20,9 @@ class BookingResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'number_of_people' => $this->number_of_people,
+            'duration_days' => $this->duration_days,
+            'status' => $this->status,
+            'created_at' => $this->created_at,
         ];
     }
 }

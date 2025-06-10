@@ -13,4 +13,3 @@ Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.ind
 Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
 // Dit zijn de api routes voor de trips
 Route::get('/trips', [TripController::class, 'index'])->name('trips.index');
-Route::post('/trips', [TripController::class, 'store'])->name('trips.store');

@@ -13,7 +13,7 @@
                 <input type="text" name="title" id="title" class="rounded-md p-2 w-1/3">
             </div>
             <div class="flex flex-col gap-1">
-                <label for="region" class="text-white">Region</label>
+                <label for="region" class="text-white">Region<i class="text-red-500">*</i></label>
                 <select name="region" id="region" class="rounded-md p-2 w-1/3">
                     <option value="east">East</option>
                     <option value="west">West</option>
@@ -22,19 +22,19 @@
                 </select>
             </div>
             <div class="flex flex-col gap-1">
-                <label for="start_date" class="text-white">Start Date</label>
+                <label for="start_date" class="text-white">Start Date<i class="text-red-500">*</i></label>
                 <input type="date" name="start_date" id="start_date" class="rounded-md p-2 w-1/3">
             </div>
             <div class="flex flex-col gap-1">
-                <label for="number_of_people" class="text-white">Number of people</label>
+                <label for="number_of_people" class="text-white">Number of people<i class="text-red-500">*</i></label>
                 <input type="number" name="number_of_people" id="number_of_people" class="rounded-md p-2 w-1/3">
             </div>
             <div class="flex flex-col gap-1">
-                <label for="duration_days" class="text-white">Duration(in days)</label>
+                <label for="duration_days" class="text-white">Duration(in days)<i class="text-red-500">*</i></label>
                 <input type="number" name="duration_days" id="duration_days" class="rounded-md p-2 w-1/3">
             </div>
             <div class="flex flex-col gap-1">
-                <label for="price_per_person" class="text-white">Price Per Person</label>
+                <label for="price_per_person" class="text-white">Price Per Person<i class="text-red-500">*</i></label>
                 <input type="number" name="price_per_person" id="price_per_person" class="rounded-md p-2 w-1/3">
             </div>
             <button type="submit" class="bg-blue-500 text-white py-2 rounded-md px-20 my-5 w-1/3 hover:bg-blue-800 transition-all ease-in-out">Add Trip</button>

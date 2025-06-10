@@ -20,6 +20,7 @@ class TripFactory extends Factory
             'title' => $this->faker->sentence,
             'region' => $this->faker->randomElement(['east', 'west', 'north', 'central']),
             'start_date' => $this->faker->date,
+            'number_of_people' => $this->faker->numberBetween(1, 10),
             'duration_days' => $this->faker->numberBetween(1, 30),
             'price_per_person' => $this->faker->numberBetween(50, 1000),
         ];

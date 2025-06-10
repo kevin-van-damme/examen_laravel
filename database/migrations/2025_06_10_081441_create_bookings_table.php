@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('trip_id')->constrained('trips')->required();
             $table->string('name')->required();
             $table->string('email')->required();
-            $table->integer('number_of_people')->required()->min(1);
+            $table->integer('number_of_people')->required()->min(1)->default(1);
             $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
             $table->timestamps();
         });

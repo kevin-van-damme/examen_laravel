@@ -20,6 +20,11 @@
                             <th>Start Date</th>
                             <th>Duration Days</th>
                             <th>Price Per Person</th>
+                            <th>Number of People</th>
+                            <th>Confirmed Bookings</th>
+                            <th>Pending Bookings</th>
+                            <th>Cancelled Bookings</th>
+                            <th>Total Revenue</th>
                         </tr>
                         @forelse ($trips as $trip)
                         <tr class="text-center">
@@ -32,6 +37,11 @@
                             <td>{{ $trip->duration_days }} day</td>
                             @endif
                             <td>{{ $trip->price_per_person }}</td>
+                            <td>{{$trip->number_of_people}}</td>
+                            <td>{{$trip->confirmed_bookings}}</td>
+                            <td>{{$trip->pending_bookings}}</td>
+                            <td>{{$trip->cancelled_bookings}}</td>
+                            <td>{{$trip->total_revenue}}</td>
                         </tr>
                         <tr>
                             @empty
@@ -40,19 +50,7 @@
                         </tr>
                         @endforelse
                     </table>
-                    <table class="text-white w-full">
 
-                        <tr class="flex flex-row justify-between text-xl ml-10">
-                            @foreach ($trips as $trip)
-                            <th class="text-green-200">Total Confirmed Bookings: {{ $trip->confirmed_bookings }}</th>
-                            <th class="text-yellow-200">Total Pending Bookings: {{ $trip->pending_bookings }}</th>
-                            <th class="text-red-200">Total Cancelled Bookings: {{ $trip->cancelled_bookings }}</th>
-                            <th class="text-blue-200">
-                                Total Revenue: {{ $trip->total_revenue }}
-                            </th>
-                            @endforeach
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
